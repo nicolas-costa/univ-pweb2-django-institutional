@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Contato
+{% endblock %}
+
+{% block content %}
+
+<div class="intro-sm">
+    <div class="intro-body-sm">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h1 class="brand-heading-sm">Institution</h1>
+                    <p class="intro-text">
+                        www.institution.com
+                    </p>
+                    <!--<a href="#pageid" class="btn btn-circle page-scroll">
+                    <i class="fa fa-angle-double-down animated"></i>
+                    </a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section>
+    <div class="container content-section">
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+                {% if form %}
+                    <h2 class="brand-heading text-center">CONTACT US</h2>
+                    <div id="contactform">
+
+                        <form action="/contato" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+
+                            <input type="submit" class="btn" value="Enviar">
+
+                        </form>
+                    </div>
+
+                {% elif msg %}
+                    {% if msg.status == 'success' %}
+
+                        <div class="alert alert-success text-center">{{msg.msg}}</div>
+
+                    {% elif msg.status == 'error' %}
+
+                        {{ form.non_field_errors }}
+
+                        {{ form.email.errors }}
+
+                        {% if form.name.errors %}
+                            <ol>
+                                {% for error in form.name.errors %}
+                                    <li><strong>{{ error|escape }}</strong></li>
+                                {% endfor %}
+                            </ol>
+                        {% endif %}
+
+                        {% if form.email.errors %}
+                            <ol>
+                                {% for error in form.email.errors %}
+                                    <li><strong>{{ error|escape }}</strong></li>
+                                {% endfor %}
+                            </ol>
+
+                        {% endif %}
+
+                        {% if form.msg.errors %}
+                            <ol>
+                                {% for error in form.msg.errors %}
+                                    <li><strong>{{ error|escape }}</strong></li>
+                                {% endfor %}
+                            </ol>
+
+                        {% endif %}
+
+                        <!--<div class="alert alert-danger text-center">{{msg.msg}}</div>-->
+
+                    {% endif %}
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
