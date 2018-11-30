@@ -34,7 +34,7 @@
                     <h2 class="brand-heading text-center">CONTACT US</h2>
                     <div id="contactform">
 
-                        <form action="/contato" method="post">
+                        <form action="{% url 'contact' %}" method="post">
                             {% csrf_token %}
                             {{ form }}
 
