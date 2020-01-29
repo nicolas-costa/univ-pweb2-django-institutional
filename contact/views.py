@@ -3,7 +3,8 @@ from .forms import ContactForm
 
 # Create your views here.
 
-def contact(req):
+
+def index(req):
 
     if req.method == 'GET':
 
@@ -27,5 +28,6 @@ def contact(req):
             return render(req, 'contact/index.html', {'msg': msg})
 
         else:
+
             return render(req, 'contact/index.html', {'form': form})
 

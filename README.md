@@ -1,10 +1,18 @@
 
 # Institutional website 
+Django framework 3.0.1 and Aries template   
+Made only for learning purposes   
 
-Django framework 2.1 and Aries framework by wowthemes
+# Screenshots    
+### Home
+![Home](misc/django1.png)   
+
+### Contact us 
+![Contact](misc/django2.png)
+
 
 # Author
-Master64k
+Nícolas Costa
 
 # License
 WTFPL
